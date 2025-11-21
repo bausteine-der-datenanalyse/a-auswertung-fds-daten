@@ -4,7 +4,7 @@ book:
   chapters: 
     - index.qmd
     - skript/introduction.qmd
-
-    
+    - skript/01-data/aset.qmd
+    - skript/01-data/fdsreader.qmd    
     - uebungen/uebung.qmd
     - klausurfragen/klausurfragen.qmd
