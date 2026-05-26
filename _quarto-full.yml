@@ -5,6 +5,7 @@ book:
     - index.qmd
     - skript/introduction.qmd
     - skript/aset.qmd
-    - skript/fdsreader.qmd    
+    - skript/fdsreader.qmd
+    - skript/daswichtigste.qmd
     - uebungen/uebung.qmd
     - klausurfragen/klausurfragen.qmd

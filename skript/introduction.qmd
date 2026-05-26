@@ -1,5 +1,11 @@
 # Einführung in ASET
 
+<div style="position: relative; width: 100%; aspect-ratio: 16 / 9;">
+  <iframe src="https://av.tib.eu/player/72480" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+
+&nbsp;
+
 ASET (Available Safe Egress Time, auf Deutsch: Verfügbare Sichere Räumungszeit) ist ein zentrales Konzept im Brandschutzingenieurwesen. Es beschreibt die Zeitspanne, die den Gebäudenutzern zur Verfügung steht, um ein Gebäude sicher zu verlassen, bevor die Bedingungen durch Feuer, Rauch oder Hitze lebensbedrohlich werden. Die ASET wird anhand verschiedener Faktoren berechnet, darunter die Brandentwicklung, die Zeit bis zur Branderkennung sowie die baulichen Gegebenheiten des Gebäudes, wie Notausgänge und Löschanlagen. 
 
 Es ist entscheidend, dass die ASET größer ist als die erforderliche sichere Räumungszeit (RSET – Required Safe Egress Time), um effektive Evakuierungspläne zu erstellen und die Sicherheit der Personen im Gebäude im Notfall zu gewährleisten.
