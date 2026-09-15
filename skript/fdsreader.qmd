@@ -262,7 +262,7 @@ plt.imshow(slc_data[it])
 ```
 
 ```{python}
-# Auf transponierte Darstellung mithilfe von ndarray.T zugreifen und anpassung des Ursprungs
+# Auf transponierte Darstellung mithilfe von ndarray.T zugreifen und Anpassung des Ursprungs
 plt.imshow(slc_data[it].T, origin='lower')
 ```
 
