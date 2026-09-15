@@ -165,7 +165,7 @@ for it in range(len(slc.times)):
 ```
 
 ```{python}
-# Darstellung des Mittelwerts und der Standartabweichung als Funktion der Zeit
+# Darstellung des Mittelwerts und der Standardabweichung als Funktion der Zeit
 plt.plot(slc.times, mittelwert, label='Mittlere Schichthöhe')
 plt.plot(slc.times, standardabweichung, label='Standardabweichung')
 plt.grid()
@@ -184,7 +184,7 @@ Beide Werte können kombiniert visualisiert werden. Die Standardabweichung ergib
 # Mittelwert darstellen
 plt.plot(slc.times, mittelwert, label='Mittlere Schichthöhe')
 
-# Band um den Mittelwert darstellen mit Hilfe der Standartabweichung
+# Band um den Mittelwert darstellen mit Hilfe der Standardabweichung
 plt.fill_between(slc.times, mittelwert-standardabweichung, mittelwert+standardabweichung, color='C0', alpha=0.3)
 
 # Boden als Referenz zeigen
