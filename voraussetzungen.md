@@ -3,4 +3,4 @@
 - Arbeiten mit NumPy
 - Arbeiten mit Pandas
 - Plotten mit Matplotlib
-- Grundkentnisse im Simulieren von Bränden
+- Grundkenntnisse im Simulieren von Bränden
