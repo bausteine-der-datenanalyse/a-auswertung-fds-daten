@@ -233,29 +233,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Das <code>fdsreader</code>-Modul kann über pip installiert werden (siehe auch das GitHub-Repository):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install fdsreader</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Zur Einführung in die grundlegende Verwendung von <code>fdsreader</code> betrachten wir ein einfaches FDS-Szenario. Zunächst importieren wir das Modul:</p>
-<div id="68baca96" class="cell" data-execution_count="1">
+<div id="bf84dbfa" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> fdsreader</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Da wir die Daten auch visualisieren möchten, importieren wir zusätzlich <code>matplotlib</code>:</p>
-<div id="4898ec8d" class="cell" data-execution_count="2">
+<div id="aad59083" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="auswahl-des-richtigen-ordners" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="auswahl-des-richtigen-ordners"><span class="header-section-number">3.2</span> Auswahl des richtigen Ordners</h2>
 <p>Als Nächstes muss der Reader auf das Verzeichnis zeigen, das die Simulationsdaten enthält, insbesondere die Smokeview-Datei:</p>
-<div id="fa470e55" class="cell" data-execution_count="3">
+<div id="bfdfa9a4" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pfad zu den Daten definieren</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>path_to_data <span class="op">=</span> <span class="st">'../skript/01-data/first_example'</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>sim <span class="op">=</span> fdsreader.Simulation(path_to_data)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/site-packages/numpy/lib/_npyio_impl.py:1048: UserWarning: no explicit representation of timezones available for np.datetime64
+<pre><code>/opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/site-packages/numpy/lib/_npyio_impl.py:1035: UserWarning: no explicit representation of timezones available for np.datetime64
   arr = _load_from_filelike(</code></pre>
 </div>
 </div>
 <p>Das <code>Simulation</code>-Objekt <code>sim</code> enthält nun alle Informationen und Daten des Simulationsausgangs:</p>
-<div id="e8c625d9" class="cell" data-execution_count="4">
+<div id="08a7bd27" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sim</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>Simulation(chid=StecklerExample,
@@ -288,7 +288,7 @@ Messgeräte in FDS
 </div>
 </div>
 <p>Die einfachste Datenstruktur ist die Ausgabe der <code>DEVC</code>-Direktiven. Die verfügbaren Daten und Metainformationen können direkt ausgegeben werden:</p>
-<div id="62b04992" class="cell" data-execution_count="5">
+<div id="7d8ebb95" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kurzreferenz für Bequemlichkeit – `devc` enthält alle Messgeräte</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>devc <span class="op">=</span> sim.devices</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(devc)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -300,7 +300,7 @@ Device(id='Temp_Door_High', xyz=(1.45, 0.05, 1.65), quantity=Quantity('TEMPERATU
 </div>
 </div>
 <p>Die <code>Device</code>-Klasse enthält alle relevanten Informationen (siehe <a href="https://firedynamics.github.io/fdsreader/devc.html">Geräte-Dokumentation</a>):</p>
-<div id="46d27ce6" class="cell" data-execution_count="6">
+<div id="172c3f95" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> devc:</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"ID: </span><span class="sc">{</span>i<span class="sc">.</span><span class="bu">id</span><span class="sc">}</span><span class="ss">,</span><span class="ch">\t</span><span class="ss"> Messgröße: </span><span class="sc">{</span>i<span class="sc">.</span>quantity_name<span class="sc">}</span><span class="ss">, </span><span class="ch">\t</span><span class="ss"> Position: </span><span class="sc">{</span>i<span class="sc">.</span>position<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -311,21 +311,21 @@ ID: Temp_Door_High,  Messgröße: TEMPERATURE,     Position: (1.45, 0.05, 1.65)<
 </div>
 </div>
 <p>Einzelne Messgeräte, einschließlich der Zeitspalte, sind über Dictionary-Einträge mit ihrer ID als Schlüssel zugänglich. Die Daten eines einzelnen Messgeräts (<code>Device.data</code>) sind als NumPy-Array gespeichert:</p>
-<div id="f7d89f67" class="cell" data-execution_count="7">
+<div id="c3868636" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(devc[<span class="st">'Temp_Door_Mid'</span>].data)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>numpy.ndarray</code></pre>
 </div>
 </div>
 <p>Die Länge entspricht dem erwarteten Wert, also 1801, da die Simulation 1800 s dauerte und die Messgeräte jede Sekunde beschrieben wurden, einschließlich <code>t = 0 s</code>.</p>
-<div id="e2d82830" class="cell" data-execution_count="8">
+<div id="76ce68e9" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(devc[<span class="st">'Time'</span>].data)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>1801</code></pre>
 </div>
 </div>
 <p>Ein erster Blick auf die Rohdaten (<code>Device.data</code>):</p>
-<div id="6f71c7dc" class="cell" data-execution_count="9">
+<div id="41dcee7e" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>devc[<span class="st">'Temp_Door_Mid'</span>].data</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>array([ 20.      ,  20.002083,  20.034418, ..., 105.32822 , 114.82179 ,
@@ -333,7 +333,7 @@ ID: Temp_Door_High,  Messgröße: TEMPERATURE,     Position: (1.45, 0.05, 1.65)<
 </div>
 </div>
 <p>Die Messgerät-Daten können auch mit Matplotlib visualisiert werden:</p>
-<div id="00e1fd0b" class="cell" data-execution_count="10">
+<div id="5c7e4e71" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot erstellen</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.plot(devc[<span class="st">'Time'</span>].data, devc[<span class="st">'Temp_Door_High'</span>].data)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -355,7 +355,7 @@ ID: Temp_Door_High,  Messgröße: TEMPERATURE,     Position: (1.45, 0.05, 1.65)<
 </div>
 </div>
 <p>In gleicher Weise können mehrere Messgeräte gleichzeitig geplottet werden, z. B. alle, deren Namen mit <code>Temp_</code> beginnen:</p>
-<div id="980f0652" class="cell" data-execution_count="11">
+<div id="13356aae" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alle Messgeräte durchlaufen</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> devc:</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -372,7 +372,7 @@ ID: Temp_Door_High,  Messgröße: TEMPERATURE,     Position: (1.45, 0.05, 1.65)<
 <div class="cell-output cell-output-stderr">
 <pre><code>&lt;&gt;:12: SyntaxWarning: invalid escape sequence '\c'
 &lt;&gt;:12: SyntaxWarning: invalid escape sequence '\c'
-/tmp/ipykernel_3347/1963712746.py:12: SyntaxWarning: invalid escape sequence '\c'
+/tmp/ipykernel_3540/1963712746.py:12: SyntaxWarning: invalid escape sequence '\c'
   plt.ylabel('Temperatur / $^\circ$C')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -400,7 +400,7 @@ Heat Release Rate (HRR)
 </div>
 </div>
 <p>Wie bei den <code>DEVC</code>-Daten kann auch auf die im <code>HRR</code>-File gespeicherten Daten direkt zugegriffen werden. Diese befinden sich im Attribut <code>hrr</code> des <code>Simulation</code>-Objekts und nicht bei den Messgeräten:</p>
-<div id="bb79745f" class="cell" data-execution_count="12">
+<div id="ac52007d" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>plt.plot(sim.hrr[<span class="st">'Time'</span>], sim.hrr[<span class="st">'HRR'</span>], label<span class="op">=</span><span class="st">'Freisetzung durch Brand'</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.plot(sim.hrr[<span class="st">'Time'</span>], sim.hrr[<span class="st">'Q_RADI'</span>], label<span class="op">=</span><span class="st">'Strahlung'</span>)</span>
@@ -442,12 +442,12 @@ Slices
 <p>Die durch <code>SLCF</code> erzeugten Daten erstrecken sich über zwei oder drei räumliche Dimensionen sowie über die Zeit. Zusätzlich können sie auf mehrere Meshes verteilt sein.</p>
 <p>Die Slice-Daten werden pro Mesh gespeichert. In diesem Beispiel gibt es nur ein Mesh, doch der Zugriff erfolgt trotzdem formell mit Index.</p>
 <p>Die Datenstruktur sieht wie folgt aus:</p>
-<div id="43024048" class="cell" data-execution_count="13">
+<div id="18ae0e1c" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sim.slices[sliceid][meshid].data[zeitindex, richtung1, richtung2]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Dabei ist <code>sliceid</code> der Index des Slices, <code>meshid</code> der Mesh-Index (hier: 0), und der Zugriff erfolgt über den Zeitindex sowie zwei Raumrichtungen (für 2D-Slices).</p>
 <p>Es gibt mehrere Slice-Objekte:</p>
-<div id="2d3bd646" class="cell" data-execution_count="14">
+<div id="f128aedf" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verfügbare Slices ausgeben</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">slice</span> <span class="kw">in</span> sim.slices:</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Slicetyp [2D/3D]: </span><span class="sc">{</span><span class="bu">slice</span><span class="sc">.</span><span class="bu">type</span><span class="sc">}</span><span class="ch">\n</span><span class="ss">  Größe: </span><span class="sc">{</span><span class="bu">slice</span><span class="sc">.</span>quantity<span class="sc">.</span>name<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>, </span>
@@ -481,7 +481,7 @@ Slicetyp [2D/3D]: 2D
 </div>
 </div>
 <p>Es gibt viele Wege einen bestimmten Slice unter den anderen zu finden. Eine Möglichkeit, den gewünschten Slice zu finden, ist das Filtern nach Quantity über <code>filter_by_quantity</code>:</p>
-<div id="40f35d6e" class="cell" data-execution_count="15">
+<div id="7353c958" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Slice(s) mit W-Geschwindigkeit bekommen</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>w_slice <span class="op">=</span> sim.slices.filter_by_quantity(<span class="st">"W-VELOCITY"</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(w_slice)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -491,7 +491,7 @@ Slice([2D] quantity=Quantity('W-VELOCITY'), cell_centered=False, extent=Extent([
 </div>
 </div>
 <p>Oder die Auswahl über die Nähe zu einem Punkt:</p>
-<div id="838adf07" class="cell" data-execution_count="16">
+<div id="334d8017" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Auswahl basierend auf der Nähe zu einem Punkt</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>slc <span class="op">=</span> w_slice.get_nearest(x<span class="op">=</span><span class="dv">1</span>, z<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(slc)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -500,7 +500,7 @@ Slice([2D] quantity=Quantity('W-VELOCITY'), cell_centered=False, extent=Extent([
 </div>
 </div>
 <p>Der Zugriff auf Slice-Daten benötigt die Auswahl von einem bestimmten Mesh und Zeitindex. Die Funktion <code>get_nearest_timestep</code> hilft dabei:</p>
-<div id="33dab3aa" class="cell" data-execution_count="17">
+<div id="f7a75204" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Zeitindex nahe t=25 s auswählen</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>it <span class="op">=</span> slc.get_nearest_timestep(<span class="dv">25</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Zeitschritt: </span><span class="sc">{</span>it<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -511,7 +511,7 @@ Simulationszeit: 25.021108627319336</code></pre>
 </div>
 </div>
 <p>Das folgende Beispiel zeigt eine Darstellung der Daten und die benötigten Schritte um diese anzupassen. Die Anpassungen finden anhand der Datenausrichtung aus der Function <code>imshow</code> statt.</p>
-<div id="ec16d74b" class="cell" data-execution_count="18">
+<div id="b0c55ee8" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Temperaturslice in y-Richtung auswählen</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>slc <span class="op">=</span> sim.slices.filter_by_quantity(<span class="st">'TEMPERATURE'</span>).get_nearest(x<span class="op">=</span><span class="dv">3</span>, y<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(slc)</span>
@@ -571,7 +571,7 @@ Simulationszeit: 25.021108627319336</code></pre>
   [ 20.180956  20.111738  20.035168 ...  48.16472   36.145966  31.134487]]]</code></pre>
 </div>
 </div>
-<div id="987fb6b3" class="cell" data-execution_count="19">
+<div id="695fe3d8" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Erste Visualisierung bei t=50 s</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>it <span class="op">=</span> slc.get_nearest_timestep(<span class="dv">50</span>)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>plt.imshow(slc_data[it])</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -583,8 +583,8 @@ Simulationszeit: 25.021108627319336</code></pre>
 </div>
 </div>
 </div>
-<div id="76edb9de" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Auf transponierte Darstellung mithilfe von ndarray.T zugreifen und anpassung des Ursprungs</span></span>
+<div id="1c7290f5" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Auf transponierte Darstellung mithilfe von ndarray.T zugreifen und Anpassung des Ursprungs</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(slc_data[it].T, origin<span class="op">=</span><span class="st">'lower'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -594,7 +594,7 @@ Simulationszeit: 25.021108627319336</code></pre>
 </div>
 </div>
 </div>
-<div id="881ec278" class="cell" data-execution_count="21">
+<div id="cd008cb5" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Erste Visualisierung bei t=50 s</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Angabe der Ausdehnung um von Indexen in den physikalischen Raum zu wechseln</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Festsetzen eines Maximalwerts mit Hilfe von vmax</span></span>
@@ -617,7 +617,7 @@ Simulationszeit: 25.021108627319336</code></pre>
 </div>
 </div>
 </div>
-<div id="1b8e8d0a" class="cell" data-execution_count="22">
+<div id="5ed4bfe7" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispiel für Mehrfach-Plot</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>list_t <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>, <span class="dv">400</span>]</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>

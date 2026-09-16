@@ -14,7 +14,7 @@
     "href": "index.html#voraussetzungen",
     "title": "Anwendungsbaustein Auswertung von fds-Daten",
     "section": "Voraussetzungen",
-    "text": "Voraussetzungen\n\nGrundlagen Python\nEinbinden von zusätzlichen Paketen\nArbeiten mit NumPy\nArbeiten mit Pandas\nPlotten mit Matplotlib\nGrundkentnisse im Simulieren von Bränden",
+    "text": "Voraussetzungen\n\nGrundlagen Python\nEinbinden von zusätzlichen Paketen\nArbeiten mit NumPy\nArbeiten mit Pandas\nPlotten mit Matplotlib\nGrundkenntnisse im Simulieren von Bränden",
     "crumbs": [
       "Preamble"
     ]
