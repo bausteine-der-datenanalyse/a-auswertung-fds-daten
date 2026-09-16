@@ -70,7 +70,7 @@ Mit der berechneten Karte kann nun eine grafische Darstellung erzeugt werden, ä
 
 ```{python}
 # Diskrete (12 Werte) Farbskala erstellen
-cmap = plt.cm.get_cmap('jet_r', 12)
+cmap = plt.colormaps['jet_r'].resampled(12)
 
 # Visualisierung der ASET-Karte
 plt.imshow(aset_karte.T, origin='lower', extent=slc.extent.as_list(), cmap=cmap)
@@ -247,4 +247,4 @@ plt.ylabel('Höhe / m')
 
 # plt.savefig('figs/appartment_layer_mean_band_mask.svg', bbox_inches='tight')
 # plt.close()
-```
+```
