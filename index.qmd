@@ -8,7 +8,7 @@
 Bausteine Computergestützter Datenanalyse von Lukas Arnold, 
 Simone Arnold, Florian Bagemihl, Matthias Baitsch, Marc Fehr, Franca Hollmann, Maik Poetzsch und 
 Sebastian Seipel. "Anwendungsbaustein Auswertung von fds-Daten" von Marc Fehr ist lizensiert unter [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.de). Das Werk ist abrufbar unter <https://github.com/bausteine-der-datenanalyse/a-auswertung_fds_daten>. 
-Ausgenommen von der Lizenz sind alle Logos und anders gekennzeichneten Inhalte. 2025
+Ausgenommen von der Lizenz sind alle Logos und anders gekennzeichneten Inhalte. 2026
 
 :::
 
